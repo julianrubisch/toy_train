@@ -1,6 +1,13 @@
+require "active_hash"
+
 require "toy_train/version"
 require "toy_train/engine"
 
 module ToyTrain
-  # Your code goes here...
+  mattr_accessor :user_class, default: "User"
+  mattr_accessor :games, default: []
+
+  def self.configure
+    yield self
+  end
 end
