@@ -4,13 +4,17 @@ module ToyTrain
   class GameRecordTest < ActiveSupport::TestCase
     include ActiveJob::TestHelper
 
+    setup do
+      ToyTrain.max_attempts = 3
+    end
+
     test "points are computed" do
       record = GameRecord.create(game_id: 1, user: users(:one), max_points: 30, units: 20)
 
       assert_equal 66.67, record.points
     end
 
-    test "only three records of the same game per user are allowed" do
+    test "only max_attempts records of the same game per user are allowed" do
       3.times { GameRecord.create(game_id: 1, user: users(:one), max_points: 30, points: 20) }
 
       record = GameRecord.new(game_id: 1, user: users(:one), max_points: 30, points: 29)
@@ -19,7 +23,7 @@ module ToyTrain
       refute_empty record.errors[:base]
     end
 
-    test "the third record is valid" do
+    test "the max_attempts'th record is valid" do
       2.times { GameRecord.create(game_id: 1, user: users(:one), max_points: 30, points: 20) }
 
       record = GameRecord.new(game_id: 1, user: users(:one), max_points: 30, points: 29)

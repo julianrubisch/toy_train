@@ -5,7 +5,7 @@ module ToyTrain
     after_destroy_commit :calculate_ranking
 
     validate do |record|
-      errors.add(:base, "Only three attempts per game are allowed") if ToyTrain::GameRecord.where(user: record.user, game_id: record.game_id).count >= 3
+      errors.add(:base, "Only three attempts per game are allowed") if ToyTrain::GameRecord.where(user: record.user, game_id: record.game_id).count >= ToyTrain.max_attempts
     end
 
     belongs_to :user, class_name: ToyTrain.user_class
