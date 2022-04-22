@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Specify your gem's dependencies in toy_train.gemspec.
 gemspec
 
-gem "sqlite3"
+gem "pg"
 
 gem "sprockets-rails"
 
