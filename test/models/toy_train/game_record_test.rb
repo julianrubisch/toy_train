@@ -33,14 +33,12 @@ module ToyTrain
     end
 
     test "creating a record enqueues a job" do
-      skip
       assert_enqueued_with(job: UpdateRankingsJob) do
         GameRecord.create(game_id: 1, user: users(:one), max_points: 30, points: 20)
       end
     end
 
     test "destroying a record enqueues a job" do
-      skip
       game_record = GameRecord.create(game_id: 1, user: users(:one), max_points: 30, points: 20)
 
       assert_enqueued_with(job: UpdateRankingsJob) do

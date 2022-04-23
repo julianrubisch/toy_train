@@ -18,7 +18,7 @@ module ToyTrain
     end
 
     def calculate_ranking
-      # UpdateRankingsJob.perform_later(game_id: game_id)
+      UpdateRankingsJob.perform_later(game_id: game_id)
     end
 
     def data=(value)
