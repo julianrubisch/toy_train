@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rankable: one
+  rankable_type: Rankable
+  position: 1
+  score: 1.5
+
+two:
+  rankable: two
+  rankable_type: Rankable
+  position: 1
+  score: 1.5
