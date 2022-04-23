@@ -1,0 +1,19 @@
+inherit_mode:
+  merge:
+    - Exclude
+
+require:
+  - standard
+  - rubocop-performance
+  - rubocop-rails
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  Exclude:
+    - 'test/dummy/**/*'
+
+Rails:
+  Exclude:
+    - 'test/**/*'

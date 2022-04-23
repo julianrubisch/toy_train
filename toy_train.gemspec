@@ -20,4 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", ">= 6.0"
   spec.add_dependency "active_hash"
+
+  spec.add_development_dependency "rubocop-rails"
+  spec.add_development_dependency "standard"
 end
