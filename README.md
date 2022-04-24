@@ -21,6 +21,29 @@ Or install it yourself as:
 $ gem install toy_train
 ```
 
+## Installation
+
+### Models
+
+#### Install Migrations
+
+```sh
+bin/rails toy_train:install:migrations
+```
+
+## Configuration
+
+In an initializer, do:
+
+```rb
+ToyTrain.configure do |config|
+  config.games = [] # ActiveHash data
+  config.user_class = "Participant" # default "User"
+end
+```
+
+
+
 ## Contributing
 Contribution directions go here.
 
